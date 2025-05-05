@@ -9,10 +9,15 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Email: admin@admin.com
+     * Contraseña: admin123
+     * Rol: admin
      */
     public function run(): void
     {
+
+        $this->call(AdminUserSeeder::class);
+
         // User::factory(10)->create();
 
         User::factory()->create([
