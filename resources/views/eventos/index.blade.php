@@ -14,6 +14,9 @@
                 <h2 class="text-xl font-semibold">{{ $evento->nombre }}</h2>
                 <p class="text-gray-700">{{ $evento->descripcion }}</p>
                 <p class="text-sm text-gray-500">Fecha: {{ \Carbon\Carbon::parse($evento->fecha)->format('d/m/Y') }}</p>
+                <a href="{{ route('eventos.show', $evento->id) }}" class="text-blue-500 hover:underline mt-2 inline-block">
+                    Ver detalle
+                </a>
             </div>
         @empty
             <p>No hay eventos próximos disponibles.</p>

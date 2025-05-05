@@ -9,6 +9,12 @@ class Evento extends Model
 {
     use HasFactory;
 
+    public function archivos()
+    {
+        return $this->hasMany(Archivo::class);
+    }
+
+
     protected $fillable = [
         'nombre',
         'descripcion',
