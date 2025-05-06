@@ -7,8 +7,11 @@
 </head>
 <body class="bg-gray-100 text-gray-900">
     <div class="max-w-2xl mx-auto mt-8 p-4 bg-white rounded shadow">
+    <a href="{{ route('dashboard') }}" class="inline-block mb-4 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded">
+        ← Volver al inicio
+    </a>
         <h1 class="text-2xl font-bold mb-4">Próximos eventos</h1>
-
+    
         @forelse ($eventos as $evento)
             <div class="border-b pb-2 mb-4">
                 <h2 class="text-xl font-semibold">{{ $evento->nombre }}</h2>

@@ -24,8 +24,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Evento::class, 'evento_user');
     }
 
-
-
     /**
      * The attributes that are mass assignable.
      *

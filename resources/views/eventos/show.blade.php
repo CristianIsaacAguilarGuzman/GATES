@@ -7,6 +7,10 @@
 </head>
 <body class="bg-gray-100 text-gray-900">
     <div class="max-w-3xl mx-auto mt-8 p-4 bg-white rounded shadow">
+    <a href="{{ route('eventos.index') }}" class="inline-block mb-4 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded">
+    ← Volver a eventos
+</a>
+
         <h1 class="text-2xl font-bold mb-4">{{ $evento->nombre }}</h1>
 
         <p class="mb-2 text-gray-700">{{ $evento->descripcion }}</p>
