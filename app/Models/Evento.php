@@ -20,4 +20,10 @@ class Evento extends Model
         'descripcion',
         'fecha',
     ];
+
+    public function usuarios()
+    {
+        return $this->belongsToMany(User::class, 'evento_user', 'evento_id', 'user_id');
+    }    
+
 }

@@ -15,6 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @auth
+                        @can('isAlumno')
+                            <x-nav-link :href="route('mis.eventos')" :active="request()->routeIs('mis.eventos')">
+                                {{ __('Mis eventos') }}
+                            </x-nav-link>
+                        @endcan
+                    @endauth
                 </div>
             </div>
 
@@ -70,6 +78,14 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            @auth
+                @can('isAlumno')
+                    <x-responsive-nav-link :href="route('mis.eventos')" :active="request()->routeIs('mis.eventos')">
+                        {{ __('Mis eventos') }}
+                    </x-responsive-nav-link>
+                @endcan
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->

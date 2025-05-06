@@ -39,6 +39,17 @@ class EventoController extends Controller
         return redirect()->route('eventos.show', $evento->id)->with('success', 'Te has inscrito correctamente al evento.');
     }
 
+    public function misEventos()
+    {
+        $user = auth()->user();
+    
+        // Obtener eventos donde el usuario está inscrito
+        $eventos = $user->eventosInscritos()->where('fecha', '>=', now())->get();
+    
+        return view('mis-eventos', compact('eventos'));
+    }
+    
+
     public function show($id)
     {
         $evento = Evento::findOrFail($id);

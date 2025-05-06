@@ -17,6 +17,14 @@ class User extends Authenticatable
         return $this->hasMany(Archivo::class);
     }
     
+// app/Models/User.php
+
+    public function eventosInscritos()
+    {
+        return $this->belongsToMany(Evento::class, 'evento_user');
+    }
+
+
 
     /**
      * The attributes that are mass assignable.
@@ -51,4 +59,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function eventos()
+    {
+        return $this->belongsToMany(Evento::class, 'evento_user', 'user_id', 'evento_id');
+    }    
+
 }
