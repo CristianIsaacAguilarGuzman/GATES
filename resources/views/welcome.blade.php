@@ -5,17 +5,27 @@
     <title>Actividad Extracurricular</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-900">
-    <div class="min-h-screen flex flex-col items-center justify-center p-4">
-        <h1 class="text-4xl font-bold mb-4">Sistema de Actividad Extracurricular</h1>
-        <p class="text-lg mb-6 text-center max-w-xl">
-            Bienvenido al sistema de registro de eventos. Aquí podrás consultar eventos, inscribirte y subir evidencia de tu participación.
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded shadow max-w-lg text-center">
+        <h1 class="text-3xl font-bold mb-4">Bienvenido al Sistema de Eventos</h1>
+        <p class="mb-6 text-gray-700">
+            Este sistema permite a los alumnos inscribirse en eventos, subir evidencias y obtener créditos académicos.
         </p>
 
-        <div class="flex gap-4">
-            <a href="{{ route('login') }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Iniciar sesión</a>
-            <a href="{{ route('register') }}" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Registrarse</a>
-            <a href="{{ route('eventos.index') }}" class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800">Ver eventos</a>
+        <div class="space-y-3">
+            @auth
+                <a href="{{ route('eventos.index') }}" class="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Ver Eventos</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="block w-full mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                        Cerrar sesión
+                    </button>
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Iniciar sesión</a>
+                <a href="{{ route('register') }}" class="block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Registrarse</a>
+                <a href="{{ route('eventos.index') }}" class="block text-blue-600 hover:underline mt-4">Ver eventos sin iniciar sesión</a>
+            @endauth
         </div>
     </div>
 </body>

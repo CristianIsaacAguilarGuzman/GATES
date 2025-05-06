@@ -5,12 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\ArchivoController;
 
-Route::post('/archivos', [ArchivoController::class, 'store'])->name('archivos.store')->middleware('auth');
-Route::delete('/archivos/{id}', [ArchivoController::class, 'destroy'])->name('archivos.destroy')->middleware('auth');
-
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/archivos', [ArchivoController::class, 'store'])->name('archivos.store')->middleware('auth');
+Route::delete('/archivos/{id}', [ArchivoController::class, 'destroy'])->name('archivos.destroy')->middleware('auth');
+
 
 Route::get('/eventos', [EventoController::class, 'index'])->name('eventos.index');
 
